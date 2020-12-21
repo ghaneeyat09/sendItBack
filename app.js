@@ -31,6 +31,9 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get("/", (req, res) => {
+    res.send("app is running")
+  })
 app.use('/user', registerRoutes);
 app.use('/user', loginRoutes);
 app.use('/order', ordersRoutes);
