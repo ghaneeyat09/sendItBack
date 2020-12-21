@@ -5,12 +5,14 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
 
+require("dotenv").config();
+
 const loginRoutes = require('./api/routes/login');
 const registerRoutes = require('./api/routes/register');
 const ordersRoutes = require('./api/routes/ordersRoute');
 const userRoutes = require('./api/routes/user');
 
-mongoose.connect('mongodb+srv://ganiyat:ganiyat@cluster0.5wiyz.mongodb.net/Cluster0?retryWrites=true&w=majority', {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true});
+mongoose.connect(process.env.DB_CONNECTION, {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true});
 
 mongoose.Promise = global.Promise;
 
