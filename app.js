@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
+const PORT = process.env.PORT || 8080;
 
 require("dotenv").config();
 
@@ -21,6 +22,11 @@ app.use(bodyParser.json());
 app.use(morgan('dev'));
 app.use(cors());
 
+app.use('/user', registerRoutes);
+app.use('/user', loginRoutes);
+app.use('/order', ordersRoutes);
+app.use('/user', userRoutes);
+
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-with, Content-Type, Accept, Authorization');
@@ -34,9 +40,9 @@ app.use((req, res, next) => {
 app.get("/", (req, res) => {
     res.send("app is running")
   })
-app.use('/user', registerRoutes);
-app.use('/user', loginRoutes);
-app.use('/order', ordersRoutes);
-app.use('/user', userRoutes);
 
-module.exports = app;
+app.listen(PORT, () => {
+    console.log('now listening to port' +PORT);
+});
+
+//module.exports = app;
