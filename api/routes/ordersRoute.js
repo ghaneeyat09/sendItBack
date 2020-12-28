@@ -38,7 +38,7 @@ router.post('/', authorizeUser, (req, res) => {
 });
 
 //getorder by id
-router.get('/:id', (req, res) => {
+router.get('/:id', authorizeUser, (req, res) => {
         const id = req.params.id;
         Order.findById({_id: id})
         .exec()

@@ -6,7 +6,7 @@ const router = express.Router();
 
 
 
-router.post('/register', (req, res, next) => {
+router.post('/register', (req, res) => {
      
     User.find({email: req.body.email})
       .exec()
@@ -55,6 +55,11 @@ router.post('/register', (req, res, next) => {
               })
                 }
 
+            })
+            .catch((err) => {
+              res.status(404).json({
+                message: 'an error occured'
+              })
             })
         
           });

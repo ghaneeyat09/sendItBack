@@ -17,10 +17,13 @@ mongoose.connect(process.env.DB_CONNECTION, {useUnifiedTopology: true, useNewUrl
 
 mongoose.Promise = global.Promise;
 
+//using middlewares
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 app.use(cors());
+
+
 
 app.use('/user', registerRoutes);
 app.use('/user', loginRoutes);

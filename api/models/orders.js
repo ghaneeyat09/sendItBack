@@ -1,13 +1,34 @@
 const mongoose = require('mongoose');
 
 const orderSchema = mongoose.Schema({
-    userId: String,
-    pickup: String,
-    destination: String,
-    recName: String,
-    recPhoneNo: Number,
-    userPhoneNo: Number,
-    currentLocation: String
+    userId: {
+        type: String,
+        required: true
+    },
+    pickup: {
+        type: String,
+        required: true
+    },
+    destination: {
+        type: String,
+        required: true
+    },
+    recName: {
+        type: String,
+        required: true
+    },
+    recPhoneNo: {
+        type: Number,
+        required: true
+    },
+    userPhoneNo: {
+        type: Number,
+        required: true
+    },
+    currentLocation: {
+        type: String,
+        required: true
+    }
 });
 
 module.exports = mongoose.model('Order', orderSchema);
