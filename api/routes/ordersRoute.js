@@ -23,7 +23,7 @@ router.post('/', authorizeUser, (req, res) => {
      .then((result)=> {
          console.log(result);
          res.status(201).json({
-             msg: "order created",
+             message: "order created",
              createdOrder: result
          })
      })
@@ -31,7 +31,7 @@ router.post('/', authorizeUser, (req, res) => {
      .catch((err) => {
          console.log(err);
          res.status(404).json({
-             msg: "an error occured",
+             message: "an error occured",
              error: err
          })
      })
