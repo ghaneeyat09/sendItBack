@@ -5,13 +5,13 @@
   "main": "app.js",
   "engines": {
     "node": ">= 14.15.0",
-    "npm": "6.14.8"
+    "npm": ">=6.14.8"
   },
   
 
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "author": "me",
   "license": "ISC",
