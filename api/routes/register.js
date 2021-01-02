@@ -43,7 +43,7 @@ router.post('/register', (req, res) => {
                      console.log(user, token)
                      res.status(200).json({
                      message: 'user created',
-                     tokenVal: token
+                     token: token
                     })
                   }
                 });
