@@ -52,4 +52,21 @@ router.post('/login', (req, res) => {
         })
 });
 
+router.get("/login/:id", authorizeUser, (req, res) => {
+        User.findById({_id: req.params.id})
+        .exec()
+        .then((data) => {
+            res.status(200).json({
+                success: true,
+                data
+            })
+        })
+        .catch((err) => {
+            res.json({
+                message: "user not found",
+                error: err
+            })
+        })
+})
+
 module.exports = router;
