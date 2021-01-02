@@ -22,6 +22,7 @@ router.post('/login', (req, res) => {
                    }) 
                 }
         if(result) {
+            console.log(result);
             generateToken(user[0], (err, token) => {
                 if(err){
                  console.log("error", err);
@@ -31,6 +32,7 @@ router.post('/login', (req, res) => {
                   res.status(201).json({
                   userData: user[0],
                   message: "Auth successful",
+                  user: user[0],
                   token: token
                     })
                 }
