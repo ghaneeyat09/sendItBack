@@ -24,11 +24,8 @@ const orderSchema = mongoose.Schema({
     userPhoneNo: {
         type: Number,
         required: true
-    },
-    currentLocation: {
-        type: String,
-        required: true
     }
+
 });
 
 module.exports = mongoose.model('Order', orderSchema);
