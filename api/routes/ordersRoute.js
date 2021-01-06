@@ -147,6 +147,27 @@ router.patch('/:id', authorizeUser, (req, res) =>{
     })  
 });
 
+//cancel request
+router.patch('/:id/cancel', authorizeUser, (req, res) =>{
+    const id = req.params.id;
+    const newData = { $set: {
+        status : "cancelled"
+    }};
+    Order.update({_id: id}, newData)
+    .exec()
+    .then((result)=> {
+        res.status(200).json({
+            message: 'data patched',
+            updatedData: result
+        })
+    })
+    .catch((err) => {
+        res.status(401).json({
+            message: 'an error occured',
+            error: err
+        })
+    })  
+});
 
 
 
