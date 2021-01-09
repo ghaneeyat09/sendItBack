@@ -129,7 +129,7 @@ router.put('/:id', authorizeUser, (req, res) =>{
 router.patch('/:id', authorizeUser, (req, res) =>{
     const id = req.params.id;
     const newData = req.body;
-    Order.update({_id: id}, newData)
+    Order.findOneAndUpdate({_id: id}, newData, {new: true})
     .exec()
     .then((result)=> {
         res.status(200).json({
