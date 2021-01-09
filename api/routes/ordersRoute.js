@@ -126,22 +126,24 @@ router.put('/:id', authorizeUser, (req, res) =>{
 });
 
 //patch request
-router.patch('/:id', authorizeUser, async (req, res) =>{
-    try{
+router.patch('/:id', authorizeUser, (req, res) =>{
     const id = req.params.id;
     const newData = req.body;
-    const updatedOrder = await Order.findOneAndUpdate({_id: id}, newData, {new: true})
+    Order.update({_id: id}, newData)
+    .exec()
+    .then((result)=> {
+        console.log(result);
         res.status(200).json({
             message: 'data patched',
-            updatedData: updatedOrder
-        });
-    }
-    catch(err) {
-        res.status(500).json({
+            updatedData: result
+        })
+    })
+    .catch((err) => {
+        res.status(401).json({
             message: 'an error occured',
             error: err
         })
-    }  
+    })  
 });
 
 //cancel request
