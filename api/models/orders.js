@@ -24,8 +24,11 @@ const orderSchema = mongoose.Schema({
     userPhoneNo: {
         type: Number,
         required: true
+    },
+    status: {
+        type: String,
+        default: "ready to pick"
     }
-    
 
 });
 
