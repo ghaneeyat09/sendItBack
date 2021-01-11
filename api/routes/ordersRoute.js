@@ -156,7 +156,7 @@ router.patch('/:id/cancel', authorizeUser, (req, res) =>{
     .exec()
     .then((result)=> {
         res.status(200).json({
-            message: 'data patched',
+            message: 'data cancelled',
             updatedData: result
         })
     })
