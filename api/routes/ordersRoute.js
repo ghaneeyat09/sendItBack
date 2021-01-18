@@ -73,7 +73,8 @@ router.get('/', authorizeUser, (req, res) => {
                     recName: result.recName,
                     recPhoneNo: result.recPhoneNo,
                     userPhoneNo: result.userPhoneNo,
-                    status: result.status
+                    status: result.status,
+                    presentLoc: result.pickup
                 }
             })
             
@@ -168,7 +169,25 @@ router.patch('/:id/cancel', authorizeUser, (req, res) =>{
         })
     })  
 });
+//delete
+router.delete('/:id/delete', authorizeUser, (req, res) => {
+    const id = req.params.id;
+    Order.remove({_id: id})
+    .exec()
+    .then((result) => {
+        console.log(result);
+        res.status(200).json({
+            message: 'order deleted'
+        })
+    })
+    .catch((err) => {
+        console.log(err);
+        res.status(500).json({
+            error: err
 
+        })
+    })
+});
 
 
 

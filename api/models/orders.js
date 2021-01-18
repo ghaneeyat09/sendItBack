@@ -28,8 +28,10 @@ const orderSchema = mongoose.Schema({
     status: {
         type: String,
         default: "ready to pick"
+    },
+    presentLoc: {
+        type: String
     }
-
 });
 
 module.exports = mongoose.model('Order', orderSchema);
