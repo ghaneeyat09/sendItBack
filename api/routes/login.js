@@ -59,7 +59,7 @@ router.post('/login/admin', (req, res) => {
     .then((admin) => {
         if(admin.lenght < 1){
             res.status(401).json({
-                message: 'user not found'
+                message: 'admin not found'
             });
         }
            bcrypt.compare(req.body.password, admin[0].password, (err, result) => {
