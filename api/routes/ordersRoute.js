@@ -72,7 +72,8 @@ router.get('/', authorizeUser, (req, res) => {
                     destination: result.destination,
                     recName: result.recName,
                     recPhoneNo: result.recPhoneNo,
-                    userPhoneNo: result.userPhoneNo
+                    userPhoneNo: result.userPhoneNo,
+                    status: result.status
                 }
             })
             
