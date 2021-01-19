@@ -74,7 +74,7 @@ router.get('/', authorizeUser, (req, res) => {
                     recPhoneNo: result.recPhoneNo,
                     userPhoneNo: result.userPhoneNo,
                     status: result.status,
-                    presentLoc: result.pickup
+                    presentLoc
                 }
             })
             
