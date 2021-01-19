@@ -30,7 +30,8 @@ const orderSchema = mongoose.Schema({
         default: "ready to pick"
     },
     presentLoc: {
-        type: String
+        type: String,
+        default: ""
     }
 });
 
