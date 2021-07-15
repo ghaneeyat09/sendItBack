@@ -2,7 +2,7 @@
 
 ## Overview
 
-sendIt is a super fast courier service put in place to ease picking-up and delivering of goods anywhere within ilorin, kwara state, Nigeria.
+sendIt is a super fast courier service put in place to ease picking-up and delivering of goods anywhere within Nigeria.
 
 ## Available Endpoints
 
